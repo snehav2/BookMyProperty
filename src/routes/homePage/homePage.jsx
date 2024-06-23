@@ -1,6 +1,4 @@
-
-
-import SearchBar from '../../components/searchBar/SearchBar.jsx'
+import SearchBar from "../../components/searchBar/SearchBar";
 import './homePage.scss'
 
 function HomePage(){
@@ -8,7 +6,7 @@ function HomePage(){
     <div className='homePage'>
         <div className='textContainer'>
             <div className='wrapper'>
-            <h1>
+            <h1 className='title'>
                 Your Next Home, Just a Click Away
             </h1>
             <p>
