@@ -1,4 +1,4 @@
-.register {
+.registerPage {
   height: 100%;
   display: flex;
 
@@ -14,9 +14,6 @@
       flex-direction: column;
       gap: 20px;
 
-      .title{
-        font-size: 100px;
-      }
       input {
         padding: 20px;
         border: 1px solid gray;
