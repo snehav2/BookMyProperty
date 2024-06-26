@@ -7,7 +7,10 @@ export const getPosts = async (req, res) => {
   try {
     const posts = await prisma.post.findMany({
       where: {
-        city: query.city || undefined,
+        city: {
+          contains: query.city || undefined,
+          mode:"insensitive"
+        },
         type: query.type || undefined,
         property: query.property || undefined,
         bedroom: parseInt(query.bedroom) || undefined,
@@ -56,14 +59,14 @@ export const getPost = async (req, res) => {
               },
             },
           });
-          res.status(200).json({ ...post, isSaved: saved ? true : false });
+          return res.status(200).json({ ...post, isSaved: saved ? true : false });
         }
       });
     }
-    res.status(200).json({ ...post, isSaved: false });
+    return res.status(200).json({ ...post, isSaved: false });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Failed to get post" });
+    return res.status(500).json({ message: "Failed to get post" });
   }
 };
 

@@ -1,9 +1,9 @@
 @import "../../responsive.scss";
 
 .homePage {
+  font-family:'Times New Roman';
   display: flex;
   height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
 
   .textContainer {
     flex: 3;
@@ -35,6 +35,10 @@
           font-size: 48px;
         }
       }
+      .para{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size:20px;
+      }
 
       .boxes {
         display: flex;
@@ -62,7 +66,7 @@
 
   .imgContainer {
     flex: 2;
-    background-color: #fcf5f3;
+    background-color: #f6edea;
     position: relative;
     display: flex;
     align-items: center;

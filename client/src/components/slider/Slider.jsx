@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import "./slider.scss";
 
 function Slider({ images }) {

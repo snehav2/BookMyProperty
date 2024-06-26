@@ -11,20 +11,21 @@
       cursor: pointer;
       background-color: white;
       text-transform: capitalize;
-
-      &.active {
-        background-color: black;
-        color: white;
-      }
-
-      &:first-child {
-        border-top-left-radius: 5px;
-        border-right: none;
-      }
-      &:last-child {
-        border-top-right-radius: 5px;
-        border-left: none;
-      }
+    }
+    
+    button:first-child {
+      border-top-left-radius: 5px;
+      border-right: none;
+    }
+    
+    button:last-child {
+      border-top-right-radius: 5px;
+      border-left: none;
+    }
+    
+    button.active {
+      background-color: black;
+      color: white;
     }
   }
 
@@ -45,6 +46,8 @@
       padding: 0px 10px;
       width: 200px;
 
+
+      
       @include lg {
         padding: 0px 5px;
 
@@ -72,19 +75,26 @@
       }
     }
 
-    button {
-      border: none;
-      cursor: pointer;
-      background-color: #fece51;
+    a{
       flex: 1;
+      background-color: #f39780;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      @include sm{
-        padding: 10px;
-      }
-
-      img {
-        width: 24px;
-        height: 24px;
+      button {
+        border: none;
+        cursor: pointer;
+        background-color: #f19179;
+        
+        @include sm{
+          padding: 10px;
+        }
+        
+        img {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
   }

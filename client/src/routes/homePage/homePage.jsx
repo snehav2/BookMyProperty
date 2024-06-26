@@ -1,37 +1,39 @@
+import { useContext } from "react";
 import SearchBar from "../../components/searchBar/SearchBar";
-import { AuthContext } from "../../context/AuthContext";
 import "./homePage.scss";
-import {useContext} from "react"
+import { AuthContext } from "../../context/AuthContext";
+
 function HomePage() {
-  const {currentUser} =useContext(AuthContext)
-  console.log(currentUser)
+
+  const {currentUser} = useContext(AuthContext)
+
   return (
     <div className="homePage">
       <div className="textContainer">
         <div className="wrapper">
-          <h1 className="title">Find Your Perfect Stay with Ease</h1>
-          <p>
-          Introducing BookMyProperty, the ultimate app for all your property needs. Whether you're looking to buy or rent, HomeFinder has you covered with a seamless, user-friendly experience.
-          </p>
+          <h1 className="title">Find Your Perfect Home: Buy, Rent, and Live Better</h1>
+          <p className="para">
+          Welcome to BookMyProperty, your ultimate property search tool. Buy or rent with ease using our intuitive search, chat with property owners, explore neighborhoods with our interactive map, create posts effortlessly, and save your favorite listings.
+         </p>
           <SearchBar />
           <div className="boxes">
             <div className="box">
-              <h1>16+</h1>
-              <h2>Years of Experience</h2>
+              <h1>User friendly</h1>
+              <h2>with chat feature</h2>
             </div>
             <div className="box">
-              <h1>200</h1>
-              <h2>Award Gained</h2>
+              <h1>Sorting</h1>
+              <h2>property at your ease</h2>
             </div>
             <div className="box">
-              <h1>2000+</h1>
-              <h2>Property Ready</h2>
+              <h1>Map facility</h1>
+              <h2>for better view</h2>
             </div>
           </div>
         </div>
       </div>
       <div className="imgContainer">
-        <img src="/bg.png" alt="" />
+        <img src="" alt="" />
       </div>
     </div>
   );
