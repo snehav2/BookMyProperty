@@ -60,7 +60,7 @@ function ProfileUpdatePage() {
             <label htmlFor="password">Password</label>
             <input id="password" name="password" type="password" />
           </div>
-          <button>Update</button>
+          <button className="updatebutton">Update</button>
           {error && <span>error</span>}
         </form>
       </div>

@@ -33,7 +33,7 @@ function HomePage() {
         </div>
       </div>
       <div className="imgContainer">
-        <img src="" alt="" />
+        <img src="/client/public/build.png" alt="" />
       </div>
     </div>
   );

@@ -35,9 +35,11 @@
           font-weight: 300;
         }
 
-        button{
+        .buttoncss{
+          background-color:#f5b9aa;
+          border-radius: 8px;
           padding: 12px 24px;
-          background-color: #fece51;
+          
           cursor: pointer;
           border: none;
         }
@@ -54,14 +56,20 @@
           gap: 20px;
         }
 
-        button{
+        .buttoncsslogout{
+          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           width: 100px;
-          background-color: teal;
+          background-color:#f5b9aa;
+          border-radius: 8px;
+          padding: 12px 24px;
+          
+          cursor: pointer;
           border: none;
-          color: white;
+          border: none;
+          color: rgb(0, 0, 0);
           padding: 10px 20px;
           cursor: pointer;
-          border-radius: 5px;
+          
         }
 
         img{
