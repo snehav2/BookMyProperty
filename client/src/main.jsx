@@ -8,9 +8,10 @@ import { SocketContextProvider } from "./context/SocketContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-      <SocketContextProvider>
+      {/* <SocketContextProvider>
         <App />
-      </SocketContextProvider>
+      </SocketContextProvider> */}
+      <App />
     </AuthContextProvider>
   </React.StrictMode>
 );

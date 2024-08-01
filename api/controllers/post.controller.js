@@ -48,9 +48,16 @@ export const getPost = async (req, res) => {
 
     const token = req.cookies?.token;
 
+    let isSaved = false; 
     if (token) {
       jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
-        if (!err) {
+        console.log('====================================');
+        console.log("check if user post is saved");
+        console.log('====================================');
+        console.log("user id = ",payload.id );
+        console.log("post id = ",id );
+        if
+         (!err) {
           const saved = await prisma.savedPost.findUnique({
             where: {
               userId_postId: {
@@ -59,11 +66,16 @@ export const getPost = async (req, res) => {
               },
             },
           });
-          return res.status(200).json({ ...post, isSaved: saved ? true : false });
+          if(saved) {
+            isSaved = true;
+          }
+          
+          // return res.status(200).json({ ...post, isSaved: saved ? true : false });
+          // postData = { ...post, isSaved: saved ? true : false }
         }
       });
     }
-    return res.status(200).json({ ...post, isSaved: false });
+    return res.status(200).json({ ...post, isSaved });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ message: "Failed to get post" });
@@ -84,7 +96,7 @@ export const addPost = async (req, res) => {
         },
       },
     });
-    res.status(200).json(newPost);
+   res.status(200).json(newPost);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to create post" });
@@ -121,5 +133,41 @@ export const deletePost = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to delete post" });
+  }
+};
+
+export const savePost = async (req, res) => {
+  const postId = req.body.postId;
+  const tokenUserId = req.userId;
+
+  try {
+    const savedPost = await prisma.savedPost.findUnique({
+      where: {
+        userId_postId: {
+          userId: tokenUserId,
+          postId,
+        },
+      },
+    });
+
+    if (savedPost) {
+      await prisma.savedPost.delete({
+        where: {
+          id: savedPost.id,
+        },
+      });
+      return res.status(200).json({ message: "Post removed from saved list" });
+    } else {
+      await prisma.savedPost.create({
+        data: {
+          userId: tokenUserId,
+          postId,
+        },
+      });
+      return res.status(200).json({ message: "Post saved" });
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Failed to delete users!" });
   }
 };
